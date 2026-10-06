@@ -6,20 +6,26 @@ QuizForge is a lightweight, responsive quiz platform built around quick pick-up-
 
 ## Question Bank
 
-The included bank contains **1,000 questions** across 10 categories:
+The included bank contains **2,673 questions** across 10 categories. The totals are intentionally uneven so the database feels more organic rather than forcing every category into an identical size:
 
-- Geography — 100
-- Science — 100
-- History — 100
-- Arts & Culture — 100
-- Sport — 100
-- Entertainment — 100
-- Technology — 100
-- Food & Drink — 100
-- Australia — 100
-- Music — 100
+- Geography — 317
+- Science — 291
+- History — 268
+- Arts & Culture — 236
+- Sport — 263
+- Entertainment — 258
+- Technology — 247
+- Food & Drink — 239
+- Australia — 278
+- Music — 276
 
-Each category contains **34 Easy, 33 Medium and 33 Hard** questions. General Knowledge automatically draws from the entire bank.
+Difficulty is also deliberately mixed rather than evenly divided:
+
+- Easy — 993
+- Medium — 916
+- Hard — 764
+
+General Knowledge automatically draws from the entire bank. The bank contains no exact duplicate question prompts, and includes alternate formulations and reverse-association questions to improve replay variety alongside newly added trivia.
 
 ## Quick Play
 
@@ -43,7 +49,7 @@ Custom Quiz supports:
 ## Features
 
 - One-click Quick Play
-- 1,000-question expandable bank
+- 2,673-question expandable bank
 - 10 categories
 - Three difficulty levels
 - Responsive desktop/mobile layout
@@ -73,12 +79,12 @@ Add new entries to `questions.js` using the same schema:
 
 ```javascript
 {
-  id: 1001,
+  id: 2674,
   category: "History",
   difficulty: "Medium",
-  q: "In which year did the Berlin Wall fall?",
-  options: ["1987", "1988", "1989", "1991"],
-  answer: 2
+  q: "Your question goes here?",
+  options: ["Option A", "Option B", "Option C", "Option D"],
+  answer: 0
 }
 ```
 
