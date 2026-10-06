@@ -2,71 +2,59 @@
 
 **Pick up. Play. Test your knowledge.**
 
-QuizForge is a lightweight, responsive quiz platform designed around one simple idea: **getting into a quiz should be quick**.
+QuizForge is a lightweight, responsive quiz platform built around quick pick-up-and-play trivia. Hit **Play Now** for an immediate 10-question General Knowledge round, or open **Custom Quiz** to choose a category, difficulty and round length.
 
-Open the site, hit **Play Now**, and immediately start a randomized 10-question General Knowledge quiz. No account, setup, or configuration is required.
+## Question Bank
 
-For players who want more control, QuizForge also includes a **Custom Quiz** mode with configurable topics, difficulty levels, question counts, and optional player or team names.
+The included bank contains **1,000 questions** across 10 categories:
+
+- Geography — 100
+- Science — 100
+- History — 100
+- Arts & Culture — 100
+- Sport — 100
+- Entertainment — 100
+- Technology — 100
+- Food & Drink — 100
+- Australia — 100
+- Music — 100
+
+Each category contains **34 Easy, 33 Medium and 33 Hard** questions. General Knowledge automatically draws from the entire bank.
 
 ## Quick Play
 
-Select **Play Now** and QuizForge automatically creates a:
+Quick Play starts immediately with:
 
-- 10-question quiz
-- General Knowledge round
+- 10 questions
+- General Knowledge
 - Mixed difficulty
-- Randomized question selection
-- Randomized answer order
-
-Finish the round, review your performance, and select **Play Again** to immediately generate another quiz.
+- Randomised question selection
+- No player setup required
 
 ## Custom Quiz
 
-Players who want a more specific challenge can select **Custom Quiz** and configure:
+Custom Quiz supports:
 
-- Topic
-- Difficulty
-- Number of questions
-- Optional player or team name
-
-## Topics
-
-QuizForge supports an expandable category system, including:
-
-- General Knowledge
-- Geography
-- Science
-- History
-- Arts & Culture
-- Sport
-- Entertainment
-- Technology
-- Food & Drink
-- Australia
-- Music
-
-General Knowledge acts as the main mixed category, drawing questions from across the available topics.
+- Optional team/player name
+- Topic selection
+- Easy, Medium, Hard or Mixed difficulty
+- 5, 10, 15 or 20 question rounds
 
 ## Features
 
 - One-click Quick Play
-- General Knowledge default mode
-- Multiple quiz topics
-- Easy, Medium and Hard difficulty levels
-- Mixed difficulty rounds
-- Configurable quiz lengths
-- Randomized questions and answers
-- Live score and progress tracking
+- 1,000-question expandable bank
+- 10 categories
+- Three difficulty levels
+- Responsive desktop/mobile layout
+- Live scoring and progress
 - Immediate answer feedback
-- Final score and percentage
-- Topic-by-topic performance breakdown
+- Results and topic breakdown
 - Full answer review
 - Local high-score leaderboard
-- Optional player/team names
-- Responsive desktop and mobile interface
-- No account or backend required
 - GitHub Pages compatible
-- Expandable question database
+- No backend or account required
+- Clickable QuizForge header returns to the home screen
 
 ## Project Structure
 
@@ -75,55 +63,37 @@ QuizForge/
 ├── index.html
 ├── styles.css
 ├── app.js
-└── questions.js
+├── questions.js
+└── README.md
 ```
 
-The question bank is deliberately separated into `questions.js` so QuizForge can continue growing without major changes to the quiz engine.
+## Adding Questions
 
-## Expanding the Question Bank
-
-New questions can be added directly to `questions.js`.
+Add new entries to `questions.js` using the same schema:
 
 ```javascript
 {
-    category: "History",
-    difficulty: "medium",
-    question: "In which year did the Berlin Wall fall?",
-    answers: ["1987", "1988", "1989", "1991"],
-    correct: 2
+  id: 1001,
+  category: "History",
+  difficulty: "Medium",
+  q: "In which year did the Berlin Wall fall?",
+  options: ["1987", "1988", "1989", "1991"],
+  answer: 2
 }
 ```
 
+`answer` is the **zero-based index** of the correct option.
+
 ## GitHub Pages
 
-QuizForge is completely static and can be hosted directly through GitHub Pages.
+Deploy the repository from **Settings → Pages → Deploy from a branch**, using `main` and `/ (root)`.
 
-1. Create a GitHub repository named `QuizForge`.
-2. Upload the project files to the repository root.
-3. Open **Settings → Pages**.
-4. Choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`.
-6. Save.
-
-The resulting address follows this format:
+The site URL follows this format:
 
 ```text
 https://USERNAME.github.io/QuizForge/
 ```
 
-## Future Development
-
-QuizForge is structured to support features such as larger question banks, more categories, timed modes, team-vs-team play, hosted quiz nights, picture rounds, true/false and multiple-answer questions, themed packs, streaks, bonus points, tie breakers, lifelines, statistics, exportable results, and seasonal quizzes.
-
-## Philosophy
-
-QuizForge should always remain easy to start.
-
-**Open QuizForge → Play Now → Start Quiz.**
-
-No unnecessary setup. Just questions.
-
 ---
 
-**QuizForge**  
-*Pick up. Play. Test your knowledge.*
+**QuizForge** — *Pick up. Play. Prove it.*
