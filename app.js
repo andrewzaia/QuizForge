@@ -8,11 +8,25 @@ function launch(pool,n){if(!pool.length)return alert('No questions match those f
 function quickPlay(){mode='quick';activeTopic='General Knowledge';activePlayer='';launch(bank,10)}
 $('#quickStart').onclick=quickPlay;
 $('#start').onclick=()=>{mode='custom';activeTopic=topic.value;activePlayer=$('#player').value.trim();launch(eligible(),+$('#count').value)};
-$('#customToggle').onclick=()=>{let panel=$('#customPanel'),open=panel.classList.toggle('hidden')===false;$('#customToggle').setAttribute('aria-expanded',open);$('#customToggle').textContent=open?'HIDE OPTIONS':'CUSTOM QUIZ';if(open)panel.scrollIntoView({behavior:'smooth',block:'nearest'})};
+$('#customToggle').onclick=()=>{let panel=$('#customPanel'),open=panel.classList.toggle('hidden')===false;$('#customToggle').setAttribute('aria-expanded',open);$('#customToggle').textContent=open?'HIDE OPTIONS':'CUSTOM QUIZ';if(open)panel.scrollIntoView({behavior:window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'})};
 function show(){locked=false;let x=quiz[i];$('#qmeta').textContent=`QUESTION ${i+1} / ${quiz.length}`;$('#scorelive').textContent=`SCORE ${score}`;$('#progress').style.width=`${i/quiz.length*100}%`;$('#badge').textContent=`${x.category} • ${x.difficulty}`;$('#question').textContent=x.q;$('#feedback').classList.add('hidden');$('#next').classList.add('hidden');$('#answers').innerHTML=x.options.map((a,j)=>`<button class="answer" data-i="${j}"><b>${String.fromCharCode(65+j)}</b><span>${a}</span></button>`).join('');document.querySelectorAll('.answer').forEach(b=>b.onclick=()=>choose(+b.dataset.i))}
 function choose(sel){if(locked)return;locked=true;let x=quiz[i],ok=sel===x.answer;if(ok)score++;review.push({x,sel,ok});document.querySelectorAll('.answer').forEach((b,j)=>{b.disabled=true;if(j===x.answer)b.classList.add('correct');else if(j===sel)b.classList.add('wrong')});$('#scorelive').textContent=`SCORE ${score}`;let f=$('#feedback');f.textContent=ok?'✓ Correct!':`✕ The correct answer is ${x.options[x.answer]}.`;f.className='feedback '+(ok?'good':'bad');$('#next').textContent=i===quiz.length-1?'SEE RESULTS →':'NEXT QUESTION →';$('#next').classList.remove('hidden')}
 $('#next').onclick=()=>{i++;i<quiz.length?show():finish()};
 function finish(){ $('#quiz').classList.add('hidden');$('#results').classList.remove('hidden');let p=Math.round(score/quiz.length*100),name=(mode==='custom'?activePlayer:'')||'You';$('#resultTitle').textContent=`${name}, you scored`;$('#percent').textContent=p+'%';$('#rawscore').textContent=`${score} / ${quiz.length}`;$('#resultMessage').textContent=p>=90?'Outstanding - quiz royalty.':p>=70?'Strong round - nicely played.':p>=50?'Solid effort. There’s room for a comeback.':'A character-building round. Time for the rematch!';let stats={};review.forEach(r=>{stats[r.x.category]??=[0,0];stats[r.x.category][1]++;if(r.ok)stats[r.x.category][0]++});$('#breakdown').innerHTML='<h3>Topic breakdown</h3>'+Object.entries(stats).map(([k,v])=>`<div class="stat"><span>${k}</span><b>${v[0]} / ${v[1]}</b></div>`).join('');$('#review').innerHTML=review.map((r,n)=>`<details><summary>${r.ok?'✓':'✕'} ${n+1}. ${r.x.q}</summary><p>Your answer: <b>${r.x.options[r.sel]}</b><br>Correct answer: <b>${r.x.options[r.x.answer]}</b></p></details>`).join('');saveScore(name,p);renderScores()}
-function saveScore(name,p){let s=JSON.parse(localStorage.getItem('quizScores')||'[]');s.push({name,p,score,total:quiz.length,topic:activeTopic,date:new Date().toLocaleDateString()});s.sort((a,b)=>b.p-a.p);localStorage.setItem('quizScores',JSON.stringify(s.slice(0,10)))}
-function renderScores(){let s=JSON.parse(localStorage.getItem('quizScores')||'[]');$('#highscores').innerHTML=s.length?s.map((x,n)=>`<div class="stat"><span>#${n+1} ${x.name} <small>${x.topic}</small></span><b>${x.p}%</b></div>`).join(''):'<p class="small">No scores yet.</p>'}renderScores();
-$('#again').onclick=()=>{mode==='quick'?quickPlay():launch(eligible(),+$('#count').value)};$('#home').onclick=()=>location.reload();$('#clearScores').onclick=()=>{localStorage.removeItem('quizScores');renderScores()};
+let scoreCache=[];
+function loadScores(){
+  try {
+    const stored=window.localStorage.getItem('quizScores');
+    if(stored){const parsed=JSON.parse(stored);if(Array.isArray(parsed)){scoreCache=parsed;return parsed}}
+  } catch (_) {}
+  return scoreCache;
+}
+function storeScores(scores){scoreCache=scores;try{window.localStorage.setItem('quizScores',JSON.stringify(scores))}catch(_){}}
+function saveScore(name,p){const s=loadScores();s.push({name,p,score,total:quiz.length,topic:activeTopic,date:new Date().toLocaleDateString()});s.sort((a,b)=>b.p-a.p);storeScores(s.slice(0,10))}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+function renderScores(){
+  const s=loadScores();
+  $('#highscores').innerHTML=s.length?s.map((x,n)=>'<div class="stat"><span>#'+(n+1)+' '+escapeHtml(x.name)+' <small>'+escapeHtml(x.topic)+'</small></span><b>'+escapeHtml(x.p)+'%</b></div>').join(''):'<p class="small">No scores yet.</p>';
+}
+renderScores();
+$('#again').onclick=()=>{mode==='quick'?quickPlay():launch(eligible(),+$('#count').value)};$('#home').onclick=()=>location.reload();$('#clearScores').onclick=()=>{scoreCache=[];try{window.localStorage.removeItem('quizScores')}catch(_){}renderScores()};

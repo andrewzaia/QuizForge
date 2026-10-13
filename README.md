@@ -53,6 +53,7 @@ Custom Quiz supports:
 - 10 categories
 - Three difficulty levels
 - Responsive desktop/mobile layout
+- Accessible light/dark toggle with sun/moon icons, saved preference and automatic system theme detection
 - Live scoring and progress
 - Immediate answer feedback
 - Results and topic breakdown
@@ -69,9 +70,14 @@ QuizForge/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── theme.js
 ├── questions.js
 └── README.md
 ```
+
+## Display Themes
+
+QuizForge retains its original dark design and adds a matching light palette. The theme defaults to the visitor's operating system and follows later system changes until a manual theme is selected. The choice is stored locally when browser storage is available. The external `theme.js` script runs before the stylesheet to prevent flashing the wrong theme without inline JavaScript or extra libraries.
 
 ## Adding Questions
 
