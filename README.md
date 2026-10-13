@@ -17,7 +17,7 @@ Just open the link above in your browser and select **PLAY NOW** to jump straigh
 - 10 randomly selected General Knowledge questions
 - Mixed difficulty
 - Instant feedback on every answer
-- A final score, topic breakdown and answer review
+- A final score, topic breakdown, time statistics and answer review
 
 Want to make your own round? Choose **CUSTOM QUIZ** to pick a category, select Easy, Medium, Hard or Mixed difficulty, choose 5, 10, 15 or 20 questions, and optionally enter a player or team name.
 
@@ -42,11 +42,14 @@ Selecting **General Knowledge** mixes questions from all categories. The questio
 
 - **Quick to start:** Play without creating an account.
 - **Customisable:** Choose your topic, difficulty and round length.
-- **Track your progress:** See your score as you play, then review every answer.
+- **Track your progress:** See your score and question timer as you play, then review every answer and time spent on each question.
+- **Timing statistics:** Review total answering time and average response time after every round.
 - **Local high scores:** Keep a leaderboard in your browser, with an option to clear it.
 - **Light and dark themes:** Switch with the sun/moon icon or follow your device's theme preference.
 - **Mobile-friendly:** Play on desktop, tablet or phone.
 - **Free to play:** No subscription, account or server-side setup needed.
+
+Timing measures how long each question is awaiting an answer. Pauses between questions and time spent reading feedback are excluded from the total.
 
 **Note:** High scores and manually chosen themes are saved in your browser when local storage is available. They may not appear on another device or after browser data is cleared.
 

@@ -32,3 +32,9 @@ button:disabled{cursor:default}
 @media(max-width:360px){header{padding:18px 16px}.brand{font-size:20px;letter-spacing:1.5px}main{padding:0 14px}}
 @media(orientation:landscape) and (max-height:500px){main{margin-top:20px}.card{padding-top:26px;padding-bottom:26px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Live timing and results timing, using existing light/dark theme colours. */
+.question-timing{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;margin:-16px 0 22px}
+.timing-results{border-top:1px solid var(--line);margin:6px 0 22px;padding-top:5px;font-variant-numeric:tabular-nums}
+.question-duration{color:var(--muted);font-size:12px;font-weight:600;white-space:nowrap;margin-left:8px}
+@media(max-width:620px){.question-timing{font-size:12px}}
