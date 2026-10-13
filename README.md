@@ -1,87 +1,79 @@
 # QuizForge
 
-**Pick up. Play. Test your knowledge.**
+**Pick up. Play. Prove it.**
 
-QuizForge is a lightweight, responsive quiz platform built around quick pick-up-and-play trivia. Hit **Play Now** for an immediate 10-question General Knowledge round, or open **Custom Quiz** to choose a category, difficulty and round length.
+A free, browser-based trivia game built for quick rounds, friendly competition and testing what you know. No account, installation or setup required.
 
-## Question Bank
+### [Play QuizForge online](https://andrewzaia.github.io/QuizForge/)
 
-The included bank contains **2,673 questions** across 10 categories. The totals are intentionally uneven so the database feels more organic rather than forcing every category into an identical size:
+**Website:** https://andrewzaia.github.io/QuizForge/
 
-- Geography - 317
-- Science - 291
-- History - 268
-- Arts & Culture - 236
-- Sport - 263
-- Entertainment - 258
-- Technology - 247
-- Food & Drink - 239
-- Australia - 278
-- Music - 276
+Just open the link above in your browser and select **PLAY NOW** to jump straight into a quiz.
 
-Difficulty is also deliberately mixed rather than evenly divided:
+## How to play
 
-- Easy - 993
-- Medium - 916
-- Hard - 764
+**Quick Play** is the default. One click starts a new round with:
 
-General Knowledge automatically draws from the entire bank. The bank contains no exact duplicate question prompts, and includes alternate formulations and reverse-association questions to improve replay variety alongside newly added trivia.
-
-## Quick Play
-
-Quick Play starts immediately with:
-
-- 10 questions
-- General Knowledge
+- 10 randomly selected General Knowledge questions
 - Mixed difficulty
-- Randomised question selection
-- No player setup required
+- Instant feedback on every answer
+- A final score, topic breakdown and answer review
 
-## Custom Quiz
+Want to make your own round? Choose **CUSTOM QUIZ** to pick a category, select Easy, Medium, Hard or Mixed difficulty, choose 5, 10, 15 or 20 questions, and optionally enter a player or team name.
 
-Custom Quiz supports:
+## What can you quiz yourself on?
 
-- Optional team/player name
-- Topic selection
-- Easy, Medium, Hard or Mixed difficulty
-- 5, 10, 15 or 20 question rounds
+QuizForge currently includes **2,673 questions** across 10 categories:
+
+- Geography
+- Science
+- History
+- Arts & Culture
+- Sport
+- Entertainment
+- Technology
+- Food & Drink
+- Australia
+- Music
+
+Selecting **General Knowledge** mixes questions from all categories. The question bank is designed for replayability, with varied topics and difficulty levels.
 
 ## Features
 
-- One-click Quick Play
-- 2,673-question expandable bank
-- 10 categories
-- Three difficulty levels
-- Responsive desktop/mobile layout
-- Accessible light/dark toggle with sun/moon icons, saved preference and automatic system theme detection
-- Live scoring and progress
-- Immediate answer feedback
-- Results and topic breakdown
-- Full answer review
-- Local high-score leaderboard
-- GitHub Pages compatible
-- No backend or account required
-- Clickable QuizForge header returns to the home screen
+- **Quick to start:** Play without creating an account.
+- **Customisable:** Choose your topic, difficulty and round length.
+- **Track your progress:** See your score as you play, then review every answer.
+- **Local high scores:** Keep a leaderboard in your browser, with an option to clear it.
+- **Light and dark themes:** Switch with the sun/moon icon or follow your device's theme preference.
+- **Mobile-friendly:** Play on desktop, tablet or phone.
+- **Free to play:** No subscription, account or server-side setup needed.
 
-## Project Structure
+**Note:** High scores and manually chosen themes are saved in your browser when local storage is available. They may not appear on another device or after browser data is cleared.
 
-```text
-QuizForge/
-├── index.html
-├── styles.css
-├── app.js
-├── theme.js
-├── questions.js
-└── README.md
-```
+## Want to explore the code?
 
-## Display Themes
+QuizForge is a lightweight HTML, CSS and JavaScript website hosted with GitHub Pages. Its source is publicly available in this repository.
 
-QuizForge retains its original dark design and adds a matching light palette. The theme defaults to the visitor's operating system and follows later system changes until a manual theme is selected. The choice is stored locally when browser storage is available. The external `theme.js` script runs before the stylesheet to prevent flashing the wrong theme without inline JavaScript or extra libraries.
+| File | Purpose |
+| --- | --- |
+| `index.html` | Quiz page and SEO metadata |
+| `styles.css` | Layout, responsive styling and light/dark palettes |
+| `app.js` | Gameplay, scoring and quiz controls |
+| `theme.js` | Theme detection, switching and preference saving |
+| `questions.js` | Trivia question bank |
+| `sitemap.xml` | Search engine sitemap |
 
-## Adding Questions
+### Run it locally
 
-Add new entries to `questions.js` using the same schema:
+1. Download or clone this repository.
+2. Open `index.html` in a modern browser, or serve the folder using a local static web server.
+3. Start playing.
+
+No build step, package manager or backend is required.
+
+### Add a question
+
+Questions live in `questions.js`. Follow the existing format:
 
 ```javascript
 {
@@ -94,21 +86,12 @@ Add new entries to `questions.js` using the same schema:
 }
 ```
 
-`answer` is the **zero-based index** of the correct option.
+Use a unique `id`, four answer options and a zero-based `answer` index (0-3). Keep questions accurate and avoid duplicate prompts.
 
-## SEO and GitHub Pages
+## Feedback and suggestions
 
-The landing page includes a search-friendly title, description, canonical URL, Open Graph and Twitter metadata. `sitemap.xml` references the public GitHub Pages URL. If managing this site in Google Search Console, submit `https://andrewzaia.github.io/QuizForge/sitemap.xml` as its sitemap. The site is a project page, so search crawler directives are managed at the domain root, not via a repository-level `robots.txt`.
-
-
-Deploy the repository from **Settings → Pages → Deploy from a branch**, using `main` and `/ (root)`.
-
-The site URL follows this format:
-
-```text
-https://andrewzaia.github.io/QuizForge/
-```
+Found an incorrect answer or have an idea for a new quiz category? [Open an issue](https://github.com/andrewzaia/QuizForge/issues) to share feedback.
 
 ---
 
-**QuizForge** - *Pick up. Play. Prove it.*
+**Ready for a round? [Play QuizForge now.](https://andrewzaia.github.io/QuizForge/)**
