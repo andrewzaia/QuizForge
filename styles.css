@@ -38,3 +38,8 @@ button:disabled{cursor:default}
 .timing-results{border-top:1px solid var(--line);margin:6px 0 22px;padding-top:5px;font-variant-numeric:tabular-nums}
 .question-duration{color:var(--muted);font-size:12px;font-weight:600;white-space:nowrap;margin-left:8px}
 @media(max-width:620px){.question-timing{font-size:12px}}
+
+/* Optional countdown: distinct from the elapsed-time tracking. */
+.time-countdown{font-weight:800;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:3px 7px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.time-countdown.urgent{color:var(--red);border-color:var(--red)}
+.timer-hint{line-height:1.5;margin:-8px 0 18px}
