@@ -90,14 +90,17 @@ Add new entries to `questions.js` using the same schema:
 
 `answer` is the **zero-based index** of the correct option.
 
-## GitHub Pages
+## SEO and GitHub Pages
+
+The landing page includes a search-friendly title, description, canonical URL, Open Graph and Twitter metadata. `sitemap.xml` references the public GitHub Pages URL. If managing this site in Google Search Console, submit `https://andrewzaia.github.io/QuizForge/sitemap.xml` as its sitemap. The site is a project page, so search crawler directives are managed at the domain root, not via a repository-level `robots.txt`.
+
 
 Deploy the repository from **Settings → Pages → Deploy from a branch**, using `main` and `/ (root)`.
 
 The site URL follows this format:
 
 ```text
-https://USERNAME.github.io/QuizForge/
+https://andrewzaia.github.io/QuizForge/
 ```
 
 ---
