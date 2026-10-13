@@ -8,22 +8,22 @@ QuizForge is a lightweight, responsive quiz platform built around quick pick-up-
 
 The included bank contains **2,673 questions** across 10 categories. The totals are intentionally uneven so the database feels more organic rather than forcing every category into an identical size:
 
-- Geography — 317
-- Science — 291
-- History — 268
-- Arts & Culture — 236
-- Sport — 263
-- Entertainment — 258
-- Technology — 247
-- Food & Drink — 239
-- Australia — 278
-- Music — 276
+- Geography - 317
+- Science - 291
+- History - 268
+- Arts & Culture - 236
+- Sport - 263
+- Entertainment - 258
+- Technology - 247
+- Food & Drink - 239
+- Australia - 278
+- Music - 276
 
 Difficulty is also deliberately mixed rather than evenly divided:
 
-- Easy — 993
-- Medium — 916
-- Hard — 764
+- Easy - 993
+- Medium - 916
+- Hard - 764
 
 General Knowledge automatically draws from the entire bank. The bank contains no exact duplicate question prompts, and includes alternate formulations and reverse-association questions to improve replay variety alongside newly added trivia.
 
@@ -102,4 +102,4 @@ https://USERNAME.github.io/QuizForge/
 
 ---
 
-**QuizForge** — *Pick up. Play. Prove it.*
+**QuizForge** - *Pick up. Play. Prove it.*
