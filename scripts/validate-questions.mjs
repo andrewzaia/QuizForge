@@ -73,7 +73,7 @@ for (const item of added) {
   const key = normalize(item.q);
   if (originalPrompts.has(key) || newPrompts.has(key)) fail('Duplicate added question at ID ' + item.id);
   newPrompts.add(key);
-  if (/[—–‑−]/.test(item.q + item.options.join(' '))) {
+  if (/[\u2013\u2014\u2011\u2212]/.test(item.q + item.options.join(' '))) {
     fail('Non-ASCII dash in supplementary question ' + item.id);
   }
 }
