@@ -2522,7 +2522,7 @@ window.QUESTION_BANK.push(
 {"id":5189,"category":"Music","difficulty":"Medium","q":"Which band released songs such as \"Electric Feel\", \"Kids\", and \"Time to Pretend\"?","options":["Phoenix","Franz Ferdinand","Passion Pit","MGMT"],"answer":3},
 {"id":5190,"category":"Music","difficulty":"Medium","q":"A piccolo is a smaller version of what instrument?","options":["Harp","Trumpet","Violin","Flute"],"answer":3},
 {"id":5191,"category":"Music","difficulty":"Medium","q":"Which band, with Boy George on lead vocals, won the Brit Awards in 1984?","options":["The Police","Eurythmics","Culture Club","UB40"],"answer":2},
-{"id":5192,"category":"Music","difficulty":"Medium","q":"Which Beatle wrote and performed the song \"Why Don't We Do It in the Road?\"","options":["John Lennon","George Harrison","Ringo Starr","Paul McCartney"],"answer":3},
+{"id":5192,"category":"Music","difficulty":"Medium","q":"Which Beatle wrote the 1968 song whose title asks why we don't do it in the road?","options":["John Lennon","George Harrison","Ringo Starr","Paul McCartney"],"answer":3},
 {"id":5193,"category":"Music","difficulty":"Medium","q":"When did Radiohead release their album \"OK Computer\"?","options":["1993","1995","2000","1997"],"answer":3},
 {"id":5194,"category":"Music","difficulty":"Medium","q":"Which novelty band was best known for their UK chart hits \"Combine Harvester\" and \"I Am a Cider Drinker\" in 1976?","options":["The Wurzels","Bonzo Dog Doo-Dah Band","The Firm","Goldie Lookin Chain"],"answer":0},
 {"id":5195,"category":"Music","difficulty":"Medium","q":"Who performed the guitar solo on Michael Jackson's hit \"Beat It\"?","options":["Zakk Wylde","Eddie Van Halen","Kirk Hammett","Steve Vai"],"answer":1},
