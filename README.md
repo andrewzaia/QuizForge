@@ -23,7 +23,7 @@ Want to make your own round? Choose **CUSTOM QUIZ** to pick a category, select E
 
 ## What can you quiz yourself on?
 
-QuizForge currently includes **2,673 questions** across 10 categories:
+QuizForge currently includes **5,346 questions** across 10 categories:
 
 - Geography
 - Science
@@ -64,7 +64,8 @@ QuizForge is a lightweight HTML, CSS and JavaScript website hosted with GitHub P
 | `styles.css` | Layout, responsive styling and light/dark palettes |
 | `app.js` | Gameplay, scoring and quiz controls |
 | `theme.js` | Theme detection, switching and preference saving |
-| `questions.js` | Trivia question bank |
+| `questions.js` | Original trivia question bank |
+| `questions-extra.js` | Additional 2,673 questions, loaded after the original bank |
 | `sitemap.xml` | Search engine sitemap |
 
 ### Run it locally
@@ -81,7 +82,7 @@ Questions live in `questions.js`. Follow the existing format:
 
 ```javascript
 {
-  id: 2674,
+  id: 5347,
   category: "History",
   difficulty: "Medium",
   q: "Your question goes here?",
@@ -91,6 +92,12 @@ Questions live in `questions.js`. Follow the existing format:
 ```
 
 Use a unique `id`, four answer options and a zero-based `answer` index (0-3). Keep questions accurate and avoid duplicate prompts.
+
+## Question sources and validation
+
+The additional questions are loaded locally in `questions-extra.js`, with the original question bank preserved in `questions.js`. See [question sources and licences](QUESTION_SOURCES.md) for attribution and reuse terms.
+
+To validate both banks together, run `node scripts/validate-questions.mjs`. This checks the exact category and difficulty totals, unique IDs, valid answer indices, four distinct choices, and duplicate prompts involving newly added questions. Structural checks do not replace editorial fact-checking.
 
 ## Feedback and suggestions
 
